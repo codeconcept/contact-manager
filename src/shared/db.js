@@ -22,6 +22,6 @@ export default {
     return Firestore.collection('contacts').doc(contact.id).set({ contact });
   },
   delete(id) {
-    return Firestore.collection('drinks').doc(id).delete();
+    return Firestore.collection('contacts').doc(id).delete();
   },
 };
