@@ -27,6 +27,7 @@ export default {
       db.create(this.contact)
         .then((data) => {
           console.log(data);
+          this.$emit('created');
           this.resetForm();
         })
         .catch(err => console.log(err));
