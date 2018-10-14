@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <contact-form @created="getAllContacts"></contact-form>
-    <contact-list :contacts="contacts"></contact-list>
+    <contact-list :contacts="contacts" @deleteContact="deleteContact"></contact-list>
   </div>
 </template>
 
@@ -28,6 +28,11 @@ export default {
     getAllContacts() {
       db.read().then((snapshot) => {
         this.contacts = snapshot.docs;
+      });
+    },
+    deleteContact(contact) {
+      db.delete(contact.id).then(() => {
+        this.getAllContacts();
       });
     },
   },

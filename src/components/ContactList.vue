@@ -3,6 +3,7 @@
     <ul>
       <li v-for="contact in contacts" :key="contact.data().id">
         {{contact.data().firstName}} {{contact.data().lastName}}
+        <button @click="deleteContact(contact)">x</button>
       </li>
     </ul>
   </div>
@@ -11,6 +12,11 @@
 <script>
 export default {
   props: ['contacts'],
+  methods: {
+    deleteContact(contact) {
+      this.$emit('deleteContact', contact);
+    },
+  },
 };
 </script>
 
