@@ -7,16 +7,19 @@ const config = fsConfig;
 const App = Firebase.initializeApp(config);
 const Firestore = App.firestore();
 Firestore.settings({ timestampsInSnapshots: true });
+const options = {
+  source: 'server',
+};
 
 export default {
   create(contact) {
     return Firestore.collection('contacts').add(contact);
   },
   read() {
-    return Firestore.collection('contacts').get();
+    return Firestore.collection('contacts').get(options);
   },
   update(contact) {
-    return Firestore.collection('contacts').doc(contact.id).update({ contact });
+    return Firestore.collection('contacts').doc(contact.id).update({ ...contact });
   },
   replace(contact) {
     return Firestore.collection('contacts').doc(contact.id).set({ contact });
