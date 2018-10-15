@@ -1,17 +1,18 @@
 <template>
   <div>
-    <ul>
-      <li v-for="contact in contacts" :key="contact.data().id">
-        {{contact.data().firstName}} {{contact.data().lastName}}
-        <button @click="deleteContact(contact)">x</button>
-      </li>
-    </ul>
+    <contact-details :contact='contact' v-for="contact in contacts" :key="contact.data().id">
+    </contact-details>
   </div>
 </template>
 
 <script>
+import ContactDetails from './ContactDetails.vue';
+
 export default {
   props: ['contacts'],
+  components: {
+    ContactDetails,
+  },
   methods: {
     deleteContact(contact) {
       this.$emit('deleteContact', contact);

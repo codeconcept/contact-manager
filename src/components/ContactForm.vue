@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="createContact">
-    <input type="text" v-model="contact.firstName" id="firstName" placeholder="prénom">
-    <input type="text" v-model="contact.lastName" id="lastName" placeholder="nom">
-    <input type="text" v-model="contact.email" id="email" placeholder="email">
-    <input type="text" v-model="contact.phone" id="phone" placeholder="téléphone">
+    <input type="text" v-model="contact.firstName" id="firstName" placeholder="prénom"><br>
+    <input type="text" v-model="contact.lastName" id="lastName" placeholder="nom"><br>
+    <input type="text" v-model="contact.email" id="email" placeholder="email"><br>
+    <input type="text" v-model="contact.phone" id="phone" placeholder="téléphone"><br>
     <button type="submit">créer</button>
   </form>
 </template>

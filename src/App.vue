@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <contact-form @created="getAllContacts"></contact-form>
+    <br>
     <contact-list :contacts="contacts" @deleteContact="deleteContact"></contact-list>
   </div>
 </template>
