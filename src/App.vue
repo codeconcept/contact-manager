@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <contact-form @created="getAllContacts"></contact-form>
+    <contact-form @created="created"></contact-form>
     <br>
-    <contact-list :contacts="contacts" @deleteContact="deleteContact"></contact-list>
+    <contact-list :contacts="contacts" @deleteContact="deleteContact" @saveEdit="saveEdit"></contact-list>
   </div>
 </template>
 
@@ -26,6 +26,10 @@ export default {
     this.getAllContacts();
   },
   methods: {
+    created(id) {
+      console.log(id);
+      this.getAllContacts();
+    },
     getAllContacts() {
       db.read().then((snapshot) => {
         this.contacts = snapshot.docs;
@@ -33,6 +37,11 @@ export default {
     },
     deleteContact(contact) {
       db.delete(contact.id).then(() => {
+        this.getAllContacts();
+      });
+    },
+    saveEdit(editedContact) {
+      db.update(editedContact).then(() => {
         this.getAllContacts();
       });
     },

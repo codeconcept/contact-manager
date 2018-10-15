@@ -1,6 +1,11 @@
 <template>
   <div>
-    <contact-details :contact='contact' v-for="contact in contacts" :key="contact.data().id">
+    <contact-details
+      :contact='contact'
+      v-for="contact in contacts"
+      @deleteContact="deleteContact"
+      @saveEdit="saveEdit"
+      :key="contact.data().id">
     </contact-details>
   </div>
 </template>
@@ -16,6 +21,9 @@ export default {
   methods: {
     deleteContact(contact) {
       this.$emit('deleteContact', contact);
+    },
+    saveEdit(editedContact) {
+      this.$emit('saveEdit', editedContact);
     },
   },
 };
