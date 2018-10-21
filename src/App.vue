@@ -2,7 +2,12 @@
   <div id="app">
     <contact-form @created="created"></contact-form>
     <br>
-    <contact-list :contacts="contacts" @deleteContact="deleteContact" @saveEdit="saveEdit"></contact-list>
+    <contact-list
+      :contacts="contacts"
+      @deleteContact="deleteContact"
+      @saveEdit="saveEdit">
+    </contact-list>
+    <router-view/>
   </div>
 </template>
 
