@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Contact {{$route.params.id}}</h2>
+    <h2>A propos</h2>
   </div>
 </template>
 

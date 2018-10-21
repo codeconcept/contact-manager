@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/" exact>Accueil</router-link> |
-    <router-link to="/contact">Contact</router-link>
+    <router-link to="/about">A propos</router-link>
     <br><br>
     <router-view/>
   </div>
